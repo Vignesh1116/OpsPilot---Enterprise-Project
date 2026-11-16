@@ -29,7 +29,9 @@ class UserResponse(SchemaBase):
     id: uuid.UUID
     company_id: uuid.UUID
     location_id: Optional[uuid.UUID] = None
+    location_name: Optional[str] = None
     department_id: Optional[uuid.UUID] = None
+    department_name: Optional[str] = None
     email: EmailStr
     first_name: str
     last_name: str
@@ -83,6 +85,7 @@ class UserUpdateRequest(BaseModel):
     designation: Optional[str] = None
     location_id: Optional[uuid.UUID] = None
     department_id: Optional[uuid.UUID] = None
+    role_codes: Optional[List[str]] = None
 
 
 class UserStatusUpdateRequest(BaseModel):

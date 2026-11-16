@@ -89,6 +89,8 @@ class User(Base, UUIDMixin, TimestampMixin):
 
     # Relationships
     company: Mapped["Company"] = relationship("Company", back_populates="users")  # type: ignore # noqa: F821
+    location: Mapped[Optional["CompanyLocation"]] = relationship("CompanyLocation")  # type: ignore # noqa: F821
+    department: Mapped[Optional["Department"]] = relationship("Department")  # type: ignore # noqa: F821
     user_roles: Mapped[List["UserRole"]] = relationship(
         "UserRole", back_populates="user", cascade="all, delete-orphan", foreign_keys="UserRole.user_id"
     )
